@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  padding: 40px 0 40px 0;
+  background: #000000; /*#f4f4f4;*/
+  color: #eeeeee; /*#000;*/
+  font: 16px;
+  line-height: 1.5;
+  font-family: Hack, monospace;
+}
+
+header {
+  width: 100%;
+  border-bottom: 2px dashed #2a9fd6;
+  padding: 0px 0 20px 0;
+  margin: 0 0 40px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  color: #7b7b7b;
+  margin: 0 0 20px 0;
+  border-bottom: 1px dashed #2a9fd6;
+}
+h2, h3 {
+  margin-top: 20px;
+}
+
+h3 {
+  border-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+header > * > h1 {
+  border-bottom: 0px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #2a9fd6;
+}
+
+pre {
+  border: 1px solid #2a9fd6;
+  padding: 25px;
+  font-size: 14px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  text-wrap: normal;
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+code {
+  border: 1px solid #2a9fd6;
+  padding: 3px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+pre > code {
+  border: 0px;
+  padding: 0px;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #2a9fd6;
+  padding: 5px 5px;
+  color: #2a9fd6;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.btn:hover {
+  border: 1px solid #6e2caf;
+  color: #6e2caf;
+  background-color: #ffacff
+}
+
+.row {
+  display: block;
+}
+
+.panel > p {
+  padding: 0 10px 0 10px;
+}
+
+.third, .half {
+  width: 100%;
+  margin-bottom: 10px;
+  /*padding: 25px;*/
+}
+
+a {
+  color: #2a9fd6;
+}
+
+.sub:before {
+  font: 1.5em;
+  content: ">>";
+  font-size: 13px;
+  color: #6e2caf;
+  margin-right: 21px;
+}
+
+blockquote {
+  padding: 1px 20px;
+  margin: 0px;
+  font-size: 0.8em;
+  border-left: 5px solid #282828
+}
+
+blockquote > p {
+  color: #aaaaaa;
+}
+
+h1 > a {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 700px) {
+  .third {
+    width: 33%;
+    float: left;
+  }
+
+  .half {
+    width: 50%;
+    float: left;
+  }
+  header > * > h1 {
+    float: left;
+    margin-right: 25px;
+  }
+}

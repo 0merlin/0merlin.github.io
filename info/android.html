@@ -57,27 +57,37 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 </div>
 </header>
 <div class="container">
-<div class="jumbotron">
-<h1 id="hello">Hello</h1>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="bu">type</span>(you) <span class="op">==</span> <span class="st">&#39;Human&#39;</span>:
-    <span class="bu">print</span> <span class="st">&quot;Greetings and Salutations&quot;</span>
-<span class="cf">else</span>:
-    <span class="bu">print</span> <span class="st">&quot;0x48 0x65 0x6c 0x6c 0x6f&quot;</span></code></pre></div>
-</div>
-<div class="row">
-<div class="third panel">
-<h3 id="what">What?</h3>
-<p>A site for sharing some useless information, and maybe something useful may come out of it.</p>
-</div>
-<div class="third panel">
-<h3 id="why">Why?</h3>
-<p>I like sharing things I know. This is hopefully going to be the place for me to do such.</p>
-</div>
-<div class="third panel">
-<h3 id="who">Who?</h3>
-<p>I am a developer that likes messing around with different languages and code ideas. The more I can learn the happier I am. So I try to learn as much and as often as I can.</p>
-</div>
-</div>
+<h1 id="android-resources">Android Resources</h1>
+<p>Over many many months I have found or been shown many useful tools that help with android development. From websites that generate icons, and colour schemes to short commands that can be used to do various things on your device via <code>adb</code> commands.</p>
+<h2 id="useful-websites">Useful Websites</h2>
+<dl>
+<dt><strong>Icon Generator</strong></dt>
+<dd><a href="https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html" class="uri">https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html</a>
+</dd>
+<dt><strong>Google Material Icons</strong></dt>
+<dd><a href="https://design.google.com/icons/" class="uri">https://design.google.com/icons/</a> or for all of them <a href="https://github.com/google/material-design-icons/" class="uri">https://github.com/google/material-design-icons/</a>
+</dd>
+<dt><strong>Colour Schemes</strong></dt>
+<dd><a href="http://www.materialpalette.com/" class="uri">http://www.materialpalette.com/</a>
+</dd>
+</dl>
+<h2 id="useful-commands">Useful Commands</h2>
+<h3 id="screenshot">Screenshot</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">adb</span> shell screencap -p /sdcard/screen.png
+<span class="kw">adb</span> pull /sdcard/screen.png
+<span class="kw">adb</span> shell rm /sdcard/screen.png
+
+<span class="kw">open</span> screen.png <span class="co"># if you have a Mac then this works</span></code></pre></div>
+<h3 id="install-a-local-apk">Install a local APK</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">adb</span> install <span class="kw">&lt;</span>apk file<span class="kw">&gt;</span>
+
+<span class="kw">adb</span> install -r <span class="kw">&lt;</span>apk file<span class="kw">&gt;</span> <span class="co"># to reinstall</span></code></pre></div>
+<h3 id="copying-files-to-and-from-a-device">Copying files to and from a device:</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Copy from:</span>
+<span class="kw">adb</span> pull /location/to/folder
+
+<span class="co"># copy to:</span>
+<span class="kw">adb</span> push /local/path /device/path</code></pre></div>
 </div>
 </body>
 </html>
