@@ -7,6 +7,44 @@
 <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
 <link rel="stylesheet" href="/asset/style.css">
 <title>0xC0DE </title>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; } /* Keyword */
+code > span.dt { color: #dfdfbf; } /* DataType */
+code > span.dv { color: #dcdccc; } /* DecVal */
+code > span.bn { color: #dca3a3; } /* BaseN */
+code > span.fl { color: #c0bed1; } /* Float */
+code > span.ch { color: #dca3a3; } /* Char */
+code > span.st { color: #cc9393; } /* String */
+code > span.co { color: #7f9f7f; } /* Comment */
+code > span.ot { color: #efef8f; } /* Other */
+code > span.al { color: #ffcfaf; } /* Alert */
+code > span.fu { color: #efef8f; } /* Function */
+code > span.er { color: #c3bf9f; } /* Error */
+code > span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+code > span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code > span.sc { color: #dca3a3; } /* SpecialChar */
+code > span.vs { color: #cc9393; } /* VerbatimString */
+code > span.ss { color: #cc9393; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #f0dfaf; } /* ControlFlow */
+code > span.op { color: #f0efd0; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #7f9f7f; } /* Documentation */
+code > span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code > span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+</style>
 </head>
 <body>
 <header>
@@ -24,6 +62,17 @@
 <blockquote>
 <p>Over time I am going to add ffmpeg shortcuts that I find useful</p>
 </blockquote>
+<h2 id="concatenate-videos">Concatenate Videos</h2>
+<p>Create a file <code>mylist.txt</code> with the following as its contents</p>
+<pre><code>file &#39;/path/to/file1&#39;
+file &#39;/path/to/file2&#39;
+file &#39;/path/to/file3&#39;</code></pre>
+<p>Then run: <code>ffmpeg -f concat -i mylist.txt -c copy output</code></p>
+<p>As a shortcut you could also use the following to do the concatenating:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">f</span> in ./*.wav<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="st">&quot;file &#39;</span><span class="ot">$f</span><span class="st">&#39;&quot;</span> <span class="kw">&gt;&gt;</span> mylist.txt<span class="kw">;</span> <span class="kw">done</span>
+<span class="kw">ffmpeg</span> -f concat -i mylist.txt -c copy output</code></pre></div>
+<p>Or if you do not want to create a temporary file:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ffmpeg</span> -f concat -i <span class="kw">&lt;(for</span> <span class="kw">f</span> in ./*.wav<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="st">&quot;file &#39;</span><span class="ot">$PWD</span><span class="st">/</span><span class="ot">$f</span><span class="st">&#39;&quot;</span><span class="kw">;</span> <span class="kw">done)</span> -c copy output.wav</code></pre></div>
 </div>
 </body>
 </html>
