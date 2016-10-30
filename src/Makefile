@@ -16,7 +16,7 @@ output:
 	mkdir -p ../info ../tutorial ../apps
 
 %.html: %.md
-	pandoc $(ARGS) $(TEMPLATE) $< > ../$@
+	pandoc $(ARGS) $(TEMPLATE) $< | sed  -E "s/\[\[(.*)\]\]/<kbd>\1<\/kbd>/" > ../$@
 
 */%.html: %.md
 	pandoc $(ARGS) $(TEMPLATE) $< > ../$@
