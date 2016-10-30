@@ -42,7 +42,7 @@ header > * > h1 {
   color: #2a9fd6;
 }
 
-pre {
+pre, kbd {
   border: 1px solid #2a9fd6;
   padding: 0px 25px 0px 25px;
   font-size: 14px;
