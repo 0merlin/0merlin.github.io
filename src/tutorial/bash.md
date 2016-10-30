@@ -48,11 +48,11 @@ The syntax I will show will look as follows.
 
 When I am using the shell the output will be shown as such:
 
-[[ls -l]]
-
 ```bash
+$ ls-l
 total 4.0K
 -rw-r--r-- 1 c0de 1.9K Aug  8 18:23 style.css
+$
 ```
 
 > Remember though that you should not be typing the `$` at the beginning of the line.
