@@ -98,10 +98,9 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 </ul>
 <p>The syntax I will show will look as follows.</p>
 <p>When I am using the shell the output will be shown as such:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -l
-<span class="kw">total</span> 4.0K
-<span class="kw">-rw-r--r--</span> 1 c0de 1.9K Aug  8 18:23 style.css
-$</code></pre></div>
+<p><kbd>ls -l</kbd></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">total</span> 4.0K
+<span class="kw">-rw-r--r--</span> 1 c0de 1.9K Aug  8 18:23 style.css</code></pre></div>
 <blockquote>
 <p>Remember though that you should not be typing the <code>$</code> at the beginning of the line.</p>
 </blockquote>
@@ -161,7 +160,7 @@ $</code></pre></div>
 <li><code>%10s</code> - ensure a column of 10 characters, adding spaces to the string as needed</li>
 <li><code>%03d</code> - ensure a 3 digit number prepended with zeros to fill the gap.</li>
 </ul>
-<p>Notice however that <code>printf</code> does not automatically add a new line for you.</p>
+<p>Notice however that <code>printf</code> does not automatically add a new line for you. So you are going to need to that manually by adding <code>\n</code> to the end of your format string.</p>
 <p>Examples are:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">printf</span> <span class="st">&quot;%03d\n&quot;</span> 2
 <span class="kw">002</span>
@@ -299,7 +298,7 @@ $</code></pre></div>
 <h3 id="if">if</h3>
 <p>An <code>if</code> is used to make decisions as it is used in other languages, the simplest if would be as follows:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># test_if.bash</span>
-<span class="kw">if [[</span> 1 <span class="ot">&lt;</span> 3<span class="kw"> ]]</span>; <span class="kw">then</span>
+<span class="kw">if <kbd></span> 1 <span class="ot">&lt;</span> 3<span class="kw"> </kbd></span>; <span class="kw">then</span>
   <span class="kw">echo</span> <span class="st">&quot;Yay&quot;</span>
 <span class="kw">fi</span></code></pre></div>
 <blockquote>
@@ -307,16 +306,16 @@ $</code></pre></div>
 </blockquote>
 <p>And there is also the <code>else</code> keyword as in other languages:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># test_if_else.bash</span>
-<span class="kw">if [[</span> 1 <span class="ot">&gt;</span> 3<span class="kw"> ]]</span>;<span class="kw">then</span>
+<span class="kw">if <kbd></span> 1 <span class="ot">&gt;</span> 3<span class="kw"> </kbd></span>;<span class="kw">then</span>
   <span class="kw">echo</span> <span class="st">&quot;damn&quot;</span>
 <span class="kw">else</span>
   <span class="kw">echo</span> <span class="st">&quot;Yay&quot;</span>
 <span class="kw">fi</span></code></pre></div>
 <p>And there is also an else if, however the keyword to use would be <code>elif</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># test_if_elseif.bash</span>
-<span class="kw">if [[</span> 1 <span class="ot">&gt;</span> 3<span class="kw"> ]]</span>; <span class="kw">then</span>
+<span class="kw">if <kbd></span> 1 <span class="ot">&gt;</span> 3<span class="kw"> </kbd></span>; <span class="kw">then</span>
   <span class="kw">echo</span> <span class="st">&quot;No&quot;</span>
-<span class="kw">elif [[</span> 2 <span class="ot">&gt;</span> 1<span class="kw"> ]]</span>; <span class="kw">then</span>
+<span class="kw">elif <kbd></span> 2 <span class="ot">&gt;</span> 1<span class="kw"> </kbd></span>; <span class="kw">then</span>
   <span class="kw">echo</span> <span class="st">&quot;Yay&quot;</span>
 <span class="kw">fi</span></code></pre></div>
 <h3 id="while">while</h3>

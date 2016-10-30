@@ -30,7 +30,7 @@ If you know some of these things then skip to what you want to know.
 
 ## Start
 
-First you are going to need two things, a text editor and a terminal. For each OS there are multiple terminal apps you can use. I only know of a few having only used a few OSs but there are many that you can use. For `OS X` (or `macOS`) there is the built in `Terminal.app` and some people prefer [`iTerm2` ](https://www.iterm2.com). If you have an `Ubuntu` based distrobution of Linux then there is the `Terminal` (sometimes called by different names). And in the latest versions of `Windows 10` there is also a bash shell.
+First you are going to need two things, a text editor and a terminal. For each OS there are multiple terminal apps you can use. I only know of a few having only used a few OSs but there are many that you can use. For `OS X` (or `macOS`) there is the built in `Terminal.app` and some people prefer [`iTerm2`](https://www.iterm2.com). If you have an `Ubuntu` based distrobution of Linux then there is the `Terminal` (sometimes called by different names). And in the latest versions of `Windows 10` there is also a bash shell.
 
 And secondly you should get some form of text editor, my preference when writing bash scripts is `Vim` however [Sublime 3](https://www.sublimetext.com/3) is also very good.
 
@@ -48,11 +48,11 @@ The syntax I will show will look as follows.
 
 When I am using the shell the output will be shown as such:
 
+[[ls -l]]
+
 ```bash
-$ ls -l
 total 4.0K
 -rw-r--r-- 1 c0de 1.9K Aug  8 18:23 style.css
-$
 ```
 
 > Remember though that you should not be typing the `$` at the beginning of the line.
@@ -136,7 +136,7 @@ But the ones that will be seen the most will be:
 * `%10s` - ensure a column of 10 characters, adding spaces to the string as needed
 * `%03d` - ensure a 3 digit number prepended with zeros to fill the gap.
 
-Notice however that `printf` does not automatically add a new line for you.
+Notice however that `printf` does not automatically add a new line for you. So you are going to need to that manually by adding `\n` to the end of your format string.
 
 Examples are:
 
