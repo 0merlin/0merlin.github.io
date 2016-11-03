@@ -77,8 +77,32 @@ There are many times that searching for files is needed. This is going to be spl
 
 ### File/Folder name
 
+The command to use for searching on file names is `find` the basic use would be the following:
+
+```
+find . -iname "*.txt"
+```
+
+That will find all filenames that match the expression "*.txt" but ignoring the case of the text. With this command you can also find directory names. To use that then fo look for the other arguments in the help or man pages.
+
+My personal favourite way of finding files is by piping output of `find` into `grep`
+
 ### File content
 
+The command to search for the content of files would be `grep` and it's alternatives. Grep has many powerful features that can be used and many ways of searching in the content.
+
+```
+grep -i 'content' file.txt
+```
+
+Or to search in a directory (example uses current directory).
+
+```
+grep -ir 'content' .
+```
+
 ## File Editing
+
+There are many ways to edit files, I will only show the usage of `vim` here.
 
 ## Tunnelling
