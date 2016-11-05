@@ -87,22 +87,68 @@ That will find all filenames that match the expression "*.txt" but ignoring the 
 
 My personal favourite way of finding files is by piping output of `find` into `grep`
 
+An example of piping `find` into `grep` would be:
+
+```bash
+find . | grep 'file_name'
+```
+
 ### File content
 
 The command to search for the content of files would be `grep` and it's alternatives. Grep has many powerful features that can be used and many ways of searching in the content.
 
 ```
-grep -i 'content' file.txt
+grep 'content' file.txt
 ```
 
 Or to search in a directory (example uses current directory).
 
 ```
-grep -ir 'content' .
+grep -r 'content' .
 ```
+
+There are many useful arguments that can be passed to grep to make things easier. The commonly used is the `-i` parameter which makes searching case-insensitive.
+
+For more help on what `grep` can do refer to either the help or the man pages.
 
 ## File Editing
 
 There are many ways to edit files, I will only show the usage of `vim` here.
 
+To open `vim` with a file(new or existing) run: `vim file.txt`
+
+The first thing to know is how to quit (so you do not get stuck!). In the editor press <kbd>Esc</kbd> then type either <kbd>:q</kbd> or if you have made changes and want to revert them type <kbd>:q!</kbd>.
+
+Vim offers a great amount of functionality, most of which is either hidden of disabled by default.
+
+The basics of which is that Vim works in "modes", the default one that the program starts in is called "Normal" or a read-only mode. To get into "Insert" mode so that you can make changes is to press <kbd>i</kbd>. The other modes you are going to need to go read up in the documentation. But an easy way to get to know vim is to follow the tutorial that comes with Vim by running <kbd>vimtututor</kbd>.
+
 ## Tunnelling
+
+There are going to be many times in which you need to work on a remote server. The most common way and the way you are going to be using is to use `ssh`. This is a great and powerful tool to use. The amount of things that it can do for you is great, however I am only going to show two usecases.
+
+The most basic usecase is to login into a remote machine. To do this you need an account on that machine, and then either a password or a key file. I am going to assume you have a password:
+
+```bash
+ssh username@remote.address
+```
+
+You will then be prompted for a password, and if you type it in correctly you will be logged into that server. You can also leave off the `username@` piece if either your local username is the same as on the remote machine, or if you change your ssh config to automatically change your username.
+
+The other thing that is useful to do on with `ssh` is to run a command on the remote machine and get the output locally:
+
+```bash
+ssh username@remote.address 'uname -a'
+```
+
+That will print out the machine details of the remote machine.
+
+## Getting Help
+
+There are many ways to get help on a command. The easiest of which is to google, but then you have to wade through the answers. If it is something specific I would rather use either the help argument to a program or go read the man pages. There is quite a lot of information that one can find in both those sources, so I would highly suggest you go and read them.
+
+To ge the help from a specific program the most common way to do this is use either `-h` or `--help` or in some cases `-help` as an argument to the program, and the help docs will print to screen. These help pages are usually minimal.
+
+To get much more complete help about a program you should refer to the man pages related to the command that you want to use. for example the man pages for the `date` command can be found by running `man date`
+
+If you are unsure of what the command is exactly but remember part of it then the program `apropos` is very useful. It will search all the program files for the command you requested and print a one-liner message on what the command does. An example of this is to run `apropos date` which will print every command that has "date" in it.
