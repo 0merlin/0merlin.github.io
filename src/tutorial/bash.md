@@ -425,9 +425,71 @@ Strings on the other hand cannot use the above symboles, instead they use the fo
 
 ## Globing
 
+In essence globing is the reverse of a regular expression. In that the expression that you do give it, the outcome is every possible match to what you provided.
+
+As an example look at the following:
+
+```bash
+$ echo {1..20}
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+$ echo {a,d,c,e,f}{1-3}
+a1 a2 a3 d1 d2 d3 c1 c2 c3 e1 e2 e3 f1 f2 f3
+$ echo server-{1,2}{a,b}-cpt
+server-1a-cpt server-1b-cpt server-2a-cpt server-2b-cpt
+$ echo {a..c}
+a b c
+$ echo {1..10..2}
+1 3 5 7 9
+$ ls
+file1 file2 file4a another_file
+$ echo file*
+file1 file2 file4a
+```
+
+Now you might wander why would anyone use this. Let me give you a few examples:
+
+1. Let's say you are wanting to process all the text files in a folder you could then run: `for f in *.txt; do cat "$f"; done` obviously replacing the `cat` program with what ever you need.
+2. Perhaps you have a list of servers that are identified by numbers, and you want to get the last 20 lines of the `httpd` logs: `for s in server{1..10}.internal; do ssh "$s" 'tail -n 20 /var/log/httpd.log'; done`
+3. What about deleting all your backups? `rm *.bkp *~`
+4. Or perhaps clearing or temporary text files on your machine? `rm /tmp/*.txt`
+
+As you can see there can be many uses for this, the limit is only what you need to do, or what you can find.
+
 ## Piping
 
+One of the major benefits that Unix brought was the idea that all programs shoould be able to handle text streams as their input and output. Now obviously not all programs handle (think of `ls` that only outputs). But most programs can do both. This might seem unimportant, were it not for another of the Unix philosophies which is that a program should only do one thing well, so that other programs can be delegated to do the other tasks.
+
+For example let's only use the basic form of `ls` to output a list of files and directories. Now let's take what ever we get and reverse it: `ls | sort -r` this obviously can be done with just `ls` however that would give `ls` way to much responsibility, but becareful with that thinking, sometimes it is beneficial to allow one program to do a lot more than one thing (read the `man` pages for `ls` to see why).
+
+There are great benefits to piping in a Unix environment one of the great benefits is that each time a new pipe is started it also signifies that a new process should be forked on the machine. Which means that if you have multiple linear processes that output data slowly, the next parts of the processes can start running even while the others are still going. And this can allow some jobs to be faster, however most of the time this will not be notice able.
+
+In most Unix environments you can pipe for as long as you wish so a command such as:
+
+```bash
+$ cmd1 | cmd2 | cmd3 | cmd4 | cmd5 | cmd6
+```
+
+Can stretch on to cover many lines, even though this does make things a little more difficult to read.
+
+Note also that if for example `cmd3` breaks the rest of the chain will behave most of the time as if nothing it wrong.
+
 ## Input/Output Redirection
+
+Bash provides one of the marvoulous things that it can read and write from files without using programs like `cat`, it can do what is known as redirection. Where it can take the contents of a file as use it as input for a program. Or automatically save the output of a program into a file.
+
+As an example instead of `cat file.txt | wc -l` we could write `wc -l < file.txt` (These are very simple cases, but the idea does work).
+
+Or perhaps you want to save the output of a command into a file for later usage: `curl http://google.com > file.html`.
+
+Both of these can be used at the same time as well: `wc -l < file.txt > results.txt`
+
+There are a few other types of redirection as well, they are listed below:
+
+* `cmd > file.txt` - save the output of `cmd` to the file `file.txt`
+* `cmd >> file.txt` - append the output of `cmd` to the file `file.txt`
+* `cmd < file.txt` - use the contents of `file.txt` as the input of `cmd`
+* `cmd > error.txt`- save the error stream of `cmd` to the file `error.txt`
+* `cmd >` - output the error stream to the standard output stream
 
 ## Exit Codes
 
