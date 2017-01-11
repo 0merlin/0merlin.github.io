@@ -488,7 +488,7 @@ There are a few other types of redirection as well, they are listed below:
 * `cmd > file.txt` - save the output of `cmd` to the file `file.txt`
 * `cmd >> file.txt` - append the output of `cmd` to the file `file.txt`
 * `cmd < file.txt` - use the contents of `file.txt` as the input of `cmd`
-* `cmd 2> error.txt`- save the error stream of `cmd` to the file `error.txt`
+* `cmd 2> error.txt` - save the error stream of `cmd` to the file `error.txt`
 * `cmd 2>&1` - output the error stream to the standard output stream
 * `cmd &> file.txt` - save both the error and standard output stream of `cmd` to `file.txt`
 
