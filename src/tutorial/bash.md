@@ -494,7 +494,34 @@ There are a few other types of redirection as well, they are listed below:
 
 ## Exit Codes
 
+Every program once run will produce an exit code, which will let you know whether it exited successfully or with an error. **Note** however that there are some programs that will exit with an error but produce a successful exit code.
+
 ## Functions
+
+As with other languages repeating code all the time can be tiring, so sometimes you would like to group functionality together. In Bash you can either do that with scripts, or with functions.
+
+The basic definition of a function would be:
+
+```bash
+function_name()
+{
+  echo "Hello..."
+}
+```
+
+You can then run any subset of commands in your functions. When inside a function is looks like you are in a seperate script so you can access the function arguments the same way that you access a scripts arguments (refer to <#command_line_arguments>).
+
+For an example see:
+
+```bash
+func()
+{
+  echo "$1"
+}
+func 'Hello'
+```
+
+Functions can be defined in your `.bashrc` file to be used in your shell environment, or in files to be used in your scripts.
 
 ## Arrays
 
