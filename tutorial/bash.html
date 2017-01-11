@@ -414,8 +414,9 @@ $ <span class="kw">echo</span> file*
 <li><code>cmd &gt; file.txt</code> - save the output of <code>cmd</code> to the file <code>file.txt</code></li>
 <li><code>cmd &gt;&gt; file.txt</code> - append the output of <code>cmd</code> to the file <code>file.txt</code></li>
 <li><code>cmd &lt; file.txt</code> - use the contents of <code>file.txt</code> as the input of <code>cmd</code></li>
-<li><code>cmd &gt; error.txt</code>- save the error stream of <code>cmd</code> to the file <code>error.txt</code></li>
-<li><code>cmd &gt;</code> - output the error stream to the standard output stream</li>
+<li><code>cmd 2&gt; error.txt</code>- save the error stream of <code>cmd</code> to the file <code>error.txt</code></li>
+<li><code>cmd 2&gt;&amp;1</code> - output the error stream to the standard output stream</li>
+<li><code>cmd &amp;&gt; file.txt</code> - save both the error and standard output stream of <code>cmd</code> to <code>file.txt</code></li>
 </ul>
 <h2 id="exit-codes">Exit Codes</h2>
 <h2 id="functions">Functions</h2>
