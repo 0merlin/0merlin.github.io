@@ -6,44 +6,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
 <link rel="stylesheet" href="/asset/style.css">
-<title>0xC0DE </title>
+<title>0xC0DE &gt; 0xC0DE</title>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #cccccc; background-color: #303030; }
-code > span.kw { color: #f0dfaf; } /* Keyword */
-code > span.dt { color: #dfdfbf; } /* DataType */
-code > span.dv { color: #dcdccc; } /* DecVal */
-code > span.bn { color: #dca3a3; } /* BaseN */
-code > span.fl { color: #c0bed1; } /* Float */
-code > span.ch { color: #dca3a3; } /* Char */
-code > span.st { color: #cc9393; } /* String */
-code > span.co { color: #7f9f7f; } /* Comment */
-code > span.ot { color: #efef8f; } /* Other */
-code > span.al { color: #ffcfaf; } /* Alert */
-code > span.fu { color: #efef8f; } /* Function */
-code > span.er { color: #c3bf9f; } /* Error */
-code > span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-code > span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-code > span.sc { color: #dca3a3; } /* SpecialChar */
-code > span.vs { color: #cc9393; } /* VerbatimString */
-code > span.ss { color: #cc9393; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #f0dfaf; } /* ControlFlow */
-code > span.op { color: #f0efd0; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #7f9f7f; } /* Documentation */
-code > span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-code > span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  { color: #cccccc; background-color: #303030; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffcfaf; } /* Alert */
+code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #dca3a3; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #f0dfaf; } /* ControlFlow */
+code span.ch { color: #dca3a3; } /* Char */
+code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code span.co { color: #7f9f7f; } /* Comment */
+code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code span.do { color: #7f9f7f; } /* Documentation */
+code span.dt { color: #dfdfbf; } /* DataType */
+code span.dv { color: #dcdccc; } /* DecVal */
+code span.er { color: #c3bf9f; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #c0bed1; } /* Float */
+code span.fu { color: #efef8f; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+code span.kw { color: #f0dfaf; } /* Keyword */
+code span.op { color: #f0efd0; } /* Operator */
+code span.ot { color: #efef8f; } /* Other */
+code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code span.sc { color: #dca3a3; } /* SpecialChar */
+code span.ss { color: #cc9393; } /* SpecialString */
+code span.st { color: #cc9393; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #cc9393; } /* VerbatimString */
+code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
 </style>
 </head>
 <body>
@@ -96,96 +120,96 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 <h2 id="variable-types">Variable Types</h2>
 <p>There are many types a variable can be in Python, the basic ones are:</p>
 <ul>
-<li>Integers e.g. <code>x = 123</code></li>
-<li>Floating point numbers e.g. <code>y = 3.2</code></li>
-<li>Strings e.g. <code>s = &quot;num&quot;</code></li>
+<li>Integers e.g. <code>x = 123</code></li>
+<li>Floating point numbers e.g. <code>y = 3.2</code></li>
+<li>Strings e.g. <code>s = "num"</code></li>
 <li>Objects</li>
-<li>Lists e.g. <code>l = [1, 2, 3]</code></li>
-<li>Tuples e.g. <code>t = (1, 2, 3)</code></li>
-<li>Dictionaries e.g. <code>d = {'a': 'b', 'b': 'c'}</code></li>
-<li>Function references e.g. <code>q = len</code></li>
+<li>Lists e.g. <code>l = [1, 2, 3]</code></li>
+<li>Tuples e.g. <code>t = (1, 2, 3)</code></li>
+<li>Dictionaries e.g. <code>d = {'a': 'b', 'b': 'c'}</code></li>
+<li>Function references e.g. <code>q = len</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="dv">123</span>
-y <span class="op">=</span> <span class="fl">3.2</span>
-s <span class="op">=</span> <span class="st">&quot;num&quot;</span>
-l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
-t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
-d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="st">&#39;b&#39;</span>, <span class="st">&#39;b&#39;</span>: <span class="st">&#39;c&#39;</span>}
-q <span class="op">=</span> <span class="bu">len</span>
-
-<span class="bu">print</span>(x)
-<span class="bu">print</span>(y)
-<span class="bu">print</span>(s)
-<span class="bu">print</span>(l)
-<span class="bu">print</span>(t)
-<span class="bu">print</span>(d)
-<span class="bu">print</span>(q)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">x <span class="op">=</span> <span class="dv">123</span></a>
+<a class="sourceLine" id="cb1-2" title="2">y <span class="op">=</span> <span class="fl">3.2</span></a>
+<a class="sourceLine" id="cb1-3" title="3">s <span class="op">=</span> <span class="st">&quot;num&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb1-5" title="5">t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb1-6" title="6">d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="st">&#39;b&#39;</span>, <span class="st">&#39;b&#39;</span>: <span class="st">&#39;c&#39;</span>}</a>
+<a class="sourceLine" id="cb1-7" title="7">q <span class="op">=</span> <span class="bu">len</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="bu">print</span>(x)</a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="bu">print</span>(y)</a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="bu">print</span>(s)</a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="bu">print</span>(l)</a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="bu">print</span>(t)</a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="bu">print</span>(d)</a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="bu">print</span>(q)</a></code></pre></div>
 <h2 id="reading-input">Reading Input</h2>
 <p>Now that you know what variables look like and an example of how to print something to screen. Lets make a simple script that will ask for your name, and then print a greeting and your name:</p>
 <p><em>Python3</em>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)
-<span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, name)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, name)</a></code></pre></div>
 <p><em>Python2</em>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="bu">raw_input</span>(<span class="st">&#39;What is your name? &#39;</span>)
-<span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, name)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">name <span class="op">=</span> <span class="bu">raw_input</span>(<span class="st">&#39;What is your name? &#39;</span>)</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>, name)</a></code></pre></div>
 <h2 id="math-operators">Math Operators</h2>
 <p>Python has the normal math operators that most languages has (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>). However it also contains a power operator: <code>**</code>.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">9</span>)
-<span class="bu">print</span>(<span class="dv">9</span> <span class="op">-</span> <span class="dv">4</span>)
-<span class="bu">print</span>(<span class="dv">7</span> <span class="op">*</span> <span class="dv">9</span>)
-<span class="bu">print</span>(<span class="dv">8</span> <span class="op">/</span> <span class="dv">3</span>) <span class="co"># normal division: 3/2 will be 1.5</span>
-<span class="bu">print</span>(<span class="dv">5</span> <span class="op">//</span> <span class="dv">2</span>) <span class="co"># integer division 3/2 will be 1</span>
-<span class="bu">print</span>(<span class="dv">8</span> <span class="op">%</span> <span class="dv">3</span>)
-<span class="bu">print</span>(<span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="bu">print</span>(<span class="dv">1</span> <span class="op">+</span> <span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="bu">print</span>(<span class="dv">9</span> <span class="op">-</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="bu">print</span>(<span class="dv">7</span> <span class="op">*</span> <span class="dv">9</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="bu">print</span>(<span class="dv">8</span> <span class="op">/</span> <span class="dv">3</span>) <span class="co"># normal division: 3/2 will be 1.5</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="bu">print</span>(<span class="dv">5</span> <span class="op">//</span> <span class="dv">2</span>) <span class="co"># integer division 3/2 will be 1</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="bu">print</span>(<span class="dv">8</span> <span class="op">%</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="bu">print</span>(<span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span>)</a></code></pre></div>
 <h2 id="lists">Lists</h2>
 <p>In Python we have lists instead of arrays. They behave almost the same, with the main difference being that lists can have operations on them to extend them, or get sub sections of them.</p>
 <p>When using lists one of the math operators gets over loaded. This being the <code>+</code> operator, which when used with lists will extend them by the list provided.</p>
 <p>An example of a list would be: <code>l = [1, 2, 'three']</code> as you can tell a list does not have to contain the same types, unlike other languages. however it is much easier if you always keep your lists containing the same type.</p>
 <p>Lists are zero indexed and are accessed in a similar manor as other languages: <code>l[1] = 5</code> and can be used directly.</p>
 <p><strong>Some examples of using lists:</strong></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]
-l2 <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]
-l3 <span class="op">=</span> l1 <span class="op">+</span> l2
-
-<span class="cf">for</span> i <span class="op">in</span> l3:
-    <span class="bu">print</span>(i)
-
-<span class="bu">print</span>(l1[<span class="dv">3</span>]) <span class="co"># will print 4</span>
-
-l3[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">99</span>
-<span class="bu">print</span>(l3)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1">l1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb5-2" title="2">l2 <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</a>
+<a class="sourceLine" id="cb5-3" title="3">l3 <span class="op">=</span> l1 <span class="op">+</span> l2</a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="cf">for</span> i <span class="kw">in</span> l3:</a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="bu">print</span>(i)</a>
+<a class="sourceLine" id="cb5-7" title="7"></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="bu">print</span>(l1[<span class="dv">3</span>]) <span class="co"># will print 4</span></a>
+<a class="sourceLine" id="cb5-9" title="9"></a>
+<a class="sourceLine" id="cb5-10" title="10">l3[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">99</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="bu">print</span>(l3)</a></code></pre></div>
 <p>When making a variable equal to a list, the list is not copied but referenced, so changes to the original list will make the same changes to the new list. This can be avoided by copying the list. Copying a list is a special version of splicing a list. To splice a list is to get part of the list copied into a new list.</p>
 <p><strong>Examples of list splicing:</strong></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]
-
-l2 <span class="op">=</span> l[<span class="dv">2</span>:<span class="dv">4</span>] <span class="co"># from the third element till the fifth (but excluding last element)</span>
-
-l3 <span class="op">=</span> l[<span class="dv">2</span>:] <span class="co"># from the third element till the end</span>
-
-l4 <span class="op">=</span> l[:] <span class="co"># copy of list</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">l2 <span class="op">=</span> l[<span class="dv">2</span>:<span class="dv">4</span>] <span class="co"># from the third element till the fifth (but excluding last element)</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">l3 <span class="op">=</span> l[<span class="dv">2</span>:] <span class="co"># from the third element till the end</span></a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7">l4 <span class="op">=</span> l[:] <span class="co"># copy of list</span></a></code></pre></div>
 <p>You can also make the list longer by appending items, and items can be removed by deleting them. When an item is removed all the indices are re indexed.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]
-l.append(<span class="dv">6</span>) <span class="co"># append item to end</span>
-<span class="kw">del</span> l[<span class="dv">2</span>] <span class="co"># remove the third element.</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1">l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb7-2" title="2">l.append(<span class="dv">6</span>) <span class="co"># append item to end</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">del</span> l[<span class="dv">2</span>] <span class="co"># remove the third element.</span></a></code></pre></div>
 <h2 id="dictionaries">Dictionaries</h2>
 <p>A dictionary is something like a mix between a list and a hashmap. They are accessed by in a similar way to lists except they have string indices. They offer the speed of a hashmap. And when printing out their values the order can never be assured. The other difference is that dictionaries use curly braces to initialise them, compared to lists which use square brackets. When adding to a dictionary an explicit append is not used.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;apple&#39;</span>: <span class="st">&#39;green&#39;</span>, <span class="st">&#39;strawberry&#39;</span>: <span class="st">&#39;red&#39;</span>}
-d[<span class="st">&#39;grape&#39;</span>] <span class="op">=</span> <span class="st">&#39;green&#39;</span>
-
-<span class="kw">del</span> d[<span class="st">&#39;apple&#39;</span>]</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1">d <span class="op">=</span> {<span class="st">&#39;apple&#39;</span>: <span class="st">&#39;green&#39;</span>, <span class="st">&#39;strawberry&#39;</span>: <span class="st">&#39;red&#39;</span>}</a>
+<a class="sourceLine" id="cb8-2" title="2">d[<span class="st">&#39;grape&#39;</span>] <span class="op">=</span> <span class="st">&#39;green&#39;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">del</span> d[<span class="st">&#39;apple&#39;</span>]</a></code></pre></div>
 <p>The other difference is that when you iterate over a list you get the values, where as for a dictionary you iterate over the keys by default:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;apple&#39;</span>: <span class="st">&#39;green&#39;</span>, <span class="st">&#39;strawberry&#39;</span>: <span class="st">&#39;red&#39;</span>}
-
-<span class="cf">for</span> k <span class="op">in</span> d:
-    <span class="bu">print</span>(k, <span class="st">&#39;=&#39;</span>, d[k])</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1">d <span class="op">=</span> {<span class="st">&#39;apple&#39;</span>: <span class="st">&#39;green&#39;</span>, <span class="st">&#39;strawberry&#39;</span>: <span class="st">&#39;red&#39;</span>}</a>
+<a class="sourceLine" id="cb9-2" title="2"></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="cf">for</span> k <span class="kw">in</span> d:</a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="bu">print</span>(k, <span class="st">&#39;=&#39;</span>, d[k])</a></code></pre></div>
 <h2 id="tuples">Tuples</h2>
 <p>Tuples are special purpose lists. They are immutable, which means you cannot change the values they store, you cannot make a tuple longer, and you cannot remove an item from a tuple. However if a tuple stores objects, those objects may be changed, but which objects the tuple points to cannot be changed.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
-<span class="bu">print</span>(t)
-
-t2 <span class="op">=</span> ([<span class="dv">1</span>], [<span class="dv">2</span>], [<span class="dv">3</span>])
-t2[<span class="dv">0</span>].append(<span class="dv">3</span>)
-<span class="bu">print</span>(t2)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1">t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="bu">print</span>(t)</a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4">t2 <span class="op">=</span> ([<span class="dv">1</span>], [<span class="dv">2</span>], [<span class="dv">3</span>])</a>
+<a class="sourceLine" id="cb10-5" title="5">t2[<span class="dv">0</span>].append(<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="bu">print</span>(t2)</a></code></pre></div>
 <p>Tuples are great for storing things that should not be changed, like colour codes.</p>
 <h2 id="control-structures">Control Structures</h2>
 <p>Python has a few main control structures:</p>
@@ -195,29 +219,29 @@ t2[<span class="dv">0</span>].append(<span class="dv">3</span>)
 <li><code>for</code> - for use with iterators</li>
 </ul>
 <p>Examples:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span>:
-    <span class="bu">print</span>(<span class="st">&quot;Yay&quot;</span>)
-
-<span class="cf">if</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="op">and</span> <span class="op">not</span> <span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">3</span>:
-    <span class="bu">print</span>(<span class="st">&quot;Again Yay&quot;</span>)
-
-<span class="cf">if</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">0</span>:
-    <span class="bu">print</span>(<span class="st">&quot;Not good&quot;</span>)
-<span class="cf">elif</span> <span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">3</span>:
-    <span class="bu">print</span>(<span class="st">&quot;Again not good&quot;</span>)
-<span class="cf">else</span>:
-    <span class="bu">print</span>(<span class="st">&quot;Much better&quot;</span>)
-
-i <span class="op">=</span> <span class="dv">1</span>
-<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:
-    <span class="bu">print</span>(i)
-    i <span class="op">+=</span> <span class="dv">1</span>
-
-<span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>): <span class="co"># print from 0 to 9</span>
-    <span class="bu">print</span>(x)
-
-<span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">11</span>, <span class="dv">2</span>): <span class="co"># print 2, 4, 6, 8, 10</span>
-    <span class="bu">print</span> x</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1"><span class="cf">if</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="bu">print</span>(<span class="st">&quot;Yay&quot;</span>)</a>
+<a class="sourceLine" id="cb11-3" title="3"></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="cf">if</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="kw">and</span> <span class="kw">not</span> <span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb11-5" title="5">    <span class="bu">print</span>(<span class="st">&quot;Again Yay&quot;</span>)</a>
+<a class="sourceLine" id="cb11-6" title="6"></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="cf">if</span> <span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb11-8" title="8">    <span class="bu">print</span>(<span class="st">&quot;Not good&quot;</span>)</a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="cf">elif</span> <span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb11-10" title="10">    <span class="bu">print</span>(<span class="st">&quot;Again not good&quot;</span>)</a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb11-12" title="12">    <span class="bu">print</span>(<span class="st">&quot;Much better&quot;</span>)</a>
+<a class="sourceLine" id="cb11-13" title="13"></a>
+<a class="sourceLine" id="cb11-14" title="14">i <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb11-15" title="15"><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb11-16" title="16">    <span class="bu">print</span>(i)</a>
+<a class="sourceLine" id="cb11-17" title="17">    i <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb11-18" title="18"></a>
+<a class="sourceLine" id="cb11-19" title="19"><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>): <span class="co"># print from 0 to 9</span></a>
+<a class="sourceLine" id="cb11-20" title="20">    <span class="bu">print</span>(x)</a>
+<a class="sourceLine" id="cb11-21" title="21"></a>
+<a class="sourceLine" id="cb11-22" title="22"><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">11</span>, <span class="dv">2</span>): <span class="co"># print 2, 4, 6, 8, 10</span></a>
+<a class="sourceLine" id="cb11-23" title="23">    <span class="bu">print</span> x</a></code></pre></div>
 <p>You will notice there is no <code>switch</code> as there is in other languages. This is because <code>if</code>s and <code>elif</code> (else if) should rather be used. There are a few others but they will not be covered in this tutorial, as they are for special cases.</p>
 <p>But if you are interested some are:</p>
 <ul>
@@ -227,27 +251,27 @@ i <span class="op">=</span> <span class="dv">1</span>
 <h2 id="command-line-arguments">Command Line Arguments</h2>
 <p>There is a way of getting values from the command line arguments, these are also much more useful than getting values read in from using <code>input()</code>, this allows you to script the use of your program.</p>
 <p>In the standard library <code>sys</code> (which provides system functions) is an array called <code>argv</code> which has a list of all the arguments passed to python, including the name of the current program. The first item in this list is the name of the program, the rest are all the values that were passed from the command line.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
-
-<span class="cf">for</span> v <span class="op">in</span> sys.argv:
-    <span class="bu">print</span>(v)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="im">import</span> sys</a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="cf">for</span> v <span class="kw">in</span> sys.argv:</a>
+<a class="sourceLine" id="cb12-4" title="4">    <span class="bu">print</span>(v)</a></code></pre></div>
 <h2 id="list-comprehension">List Comprehension</h2>
 <p>In previous sections you have seen that you can use <code>append</code> to add an item to the end of a list. But if you are going to create a list from a fairly simple process then you can use list comprehension to shorten the amount of code you type. Just as a warning this syntax can be tricky to read, and even worse to debug. So if you are going to use this then make sure you know what you are doing.</p>
 <p>The basic syntax of list comprehension is built from two mandatory sections and one optional section. The first section is the value that you want, the second is the loop, and the third is some restriction.</p>
 <p>This will calculate the first 10 square numbers:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1">l <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</a></code></pre></div>
 <p>But if we want only the squares of even numbers then:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1">l <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]</a></code></pre></div>
 <p>I know that the above could have been accomplished by just changing the <code>range(10)</code> to <code>range(0, 10, 2)</code> but that was just for a simple use case.</p>
 <p>You can also do a list comprehension inside a list comprehension (as many times as you wish), but with every occurrence you need to be even more careful.</p>
 <p>An example of producing a multiplication times table:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> [[x<span class="op">*</span>y <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] <span class="cf">for</span> y <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1">l <span class="op">=</span> [[x<span class="op">*</span>y <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</a></code></pre></div>
 <h2 id="dictionary-comprehension">Dictionary Comprehension</h2>
-<p>Dictionary comprehension follows all the same rules as above, except the &quot;value&quot; part of the syntax. Which is expressed as <code>key: value</code>.</p>
+<p>Dictionary comprehension follows all the same rules as above, except the “value” part of the syntax. Which is expressed as <code>key: value</code>.</p>
 <p>I am going to use the exact same example as above:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> {x: x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> {x: x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>}</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">l <span class="op">=</span> {y: {x: x<span class="op">*</span>y <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>)} <span class="cf">for</span> y <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1">l <span class="op">=</span> {x: x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" title="1">l <span class="op">=</span> {x: x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" title="1">l <span class="op">=</span> {y: {x: x<span class="op">*</span>y <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)} <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}</a></code></pre></div>
 <h2 id="built-in-functions">Built In Functions</h2>
 <p>There are quite a few built in functions that are available to be used. Some of them are listed here:</p>
 <ul>

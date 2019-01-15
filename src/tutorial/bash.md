@@ -49,7 +49,7 @@ The syntax I will show will look as follows.
 When I am using the shell the output will be shown as such:
 
 ```bash
-$ ls-l
+$ ls -l
 total 4.0K
 -rw-r--r-- 1 c0de 1.9K Aug  8 18:23 style.css
 $
@@ -313,6 +313,17 @@ $
 
 ## Process Substitution
 
+This is a way of running a program and using the input or output to look like a file to another program.
+
+As an example you can compare the output of two instructions.
+
+```bash
+diff <(date) <(sleep 2; date)
+```
+
+The `<()` syntax makes a file for the `diff` program but allows you to take the output of the program and use it like a file for `diff` without creating
+an actual file first.
+
 ## Control Structures
 
 As in other languages there are control structures in bash. The 3 main ones are `if`, `while` and `for`. And they work in similiar ways to other languages.
@@ -487,6 +498,7 @@ There are a few other types of redirection as well, they are listed below:
 
 * `cmd > file.txt` - save the output of `cmd` to the file `file.txt`
 * `cmd >> file.txt` - append the output of `cmd` to the file `file.txt`
+* `cmd !> file.txt` - save the output of `cmd` to the file `file.txt` but only if it doesn't already exist
 * `cmd < file.txt` - use the contents of `file.txt` as the input of `cmd`
 * `cmd 2> error.txt` - save the error stream of `cmd` to the file `error.txt`
 * `cmd 2>&1` - output the error stream to the standard output stream
@@ -525,7 +537,32 @@ Functions can be defined in your `.bashrc` file to be used in your shell environ
 
 ## Arrays
 
-## Shorthand Filtering
+Arrays can be created in a few ways. The two most common ways are:
+
+```bash
+#Hardcoded:
+
+arr=(
+  item1
+  item2
+  item3
+)
+
+#Based on the output of a program
+arr2=( $(ls -1) )
+```
+
+Then you can do various things with the arrays.
+
+```bash
+for a in ${arr[*]}; do
+  echo "$a"
+done
+
+echo "Array values: ${arr2[@]}"
+
+echo "Array size: ${#arr2[@]}"
+```
 
 ## Script Snippets
 
