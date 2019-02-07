@@ -5,4 +5,5 @@
 > but till now this is just a start...
 
 * [Bash](/tutorial/bash.html)
+* [Unix Terminal (mostly bash)](/tutorial/unix_terminal.html)
 * [Basic Python](/tutorial/python_basic.html)

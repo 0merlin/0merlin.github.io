@@ -2,7 +2,7 @@
 
 I have being experimenting with creating a pebble watchface. And I finally made one. I have put almost everything I have learnt so far into the one watchface, which does happen to make it a little complicated.
 
-> The watchface can be downloaded from <https://apps.getpebble.com/en_US/application/57d2abadffca49e6d100007f>
+> Pebble appstore is no longer available so you will need to build from source
 
 So far the things I have added to this watchface are as follows:
 
