@@ -8,17 +8,17 @@ python works from the perspective of one that can already program.
 
 So the things that are going to be shown in this short tutorial is going to cover the following:
 
-* [Basic syntax](#basic-syntax)
-* [Using variables](#variables)
-* [Basic variable types](#variable-types)
-* [Reading from the command line](#reading-input)
-* [Some math (Yay!!!)](#math-operators)
-* [Lists](#lists), [Tuples](#tuples) and [Dictionaries](#dictionaries)
-* [Control Structures (ifs and loops)](#control-structures)
-* [Reading the command line arguments](#command-line-arguments)
-* [List comprehension (short hand list manipulation)](#list-comprehension)
-* [Dictionary comprehension (short hand dictionary manipulation)](#dictionary-comprehension)
-* [Built In Functions](#built-in-functions)
+* Basic syntax
+* Using variables
+* Basic variable types
+* Reading from the command line
+* Some math (Yay!!!)
+* Lists
+* Control Structures (ifs and loops)
+* Reading the command line arguments
+* List comprehension (short hand list manipulation)
+* Dictionary comprehension (short hand dictionary manipulation)
+* Built In Functions
 
 ## Start
 

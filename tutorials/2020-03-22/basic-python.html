@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <title>Random Things - Basic Python</title>
+        <meta charset="utf-8" />
+
+
+
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/theme/css/pygment.css">
+</head>
+
+<body id="index" class="home">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/">Random Things</a></h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/category/articles.html">Articles</a>
+            <a class="p-2 text-dark" href="/category/posts.html">Posts</a>
+            <a class="p-2 text-dark active" href="/category/tutorials.html">Tutorials</a>
+        <a class="p-2 text-dark" href="/tags.html">#Tags</a>
+  </nav>
+</div>
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+<div class="row">
+    <div class="col-md-8 blog-main">
+      <div class="blog-post">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/category/tutorials.html">Tutorials</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Basic Python</li>
+          </ol>
+        </nav>
+        <h2 class="blog-post-title">Basic Python</h2>
+        <p class="blog-post-meta">Sun 22 March 2020</p>
+        <p>Awhile ago I was asked to give a quick course in Python to some colleagues. And I thought that maybe
+it could be useful for others to also have access to. So here follows my attempt at showing one how
+python works from the perspective of one that can already program.</p>
+<h2>Things to Learn</h2>
+<p>So the things that are going to be shown in this short tutorial is going to cover the following:</p>
+<ul>
+<li>Basic syntax</li>
+<li>Using variables</li>
+<li>Basic variable types</li>
+<li>Reading from the command line</li>
+<li>Some math (Yay!!!)</li>
+<li>Lists</li>
+<li>Control Structures (ifs and loops)</li>
+<li>Reading the command line arguments</li>
+<li>List comprehension (short hand list manipulation)</li>
+<li>Dictionary comprehension (short hand dictionary manipulation)</li>
+<li>Built In Functions</li>
+</ul>
+<h2>Start</h2>
+<p>The first thing you are going to need is a Python interpreter. For me I prefer Python 3, but almost
+everything can be done in Python 2. If you are using <code>Linux</code> then Python 2 will be pre-installed,
+and Python 3 might be installed. If you are on <code>Mac OS X</code>, then Python 2 is installed but Python 3 will need
+to be installed separately. And on <code>Windows</code> you will need to install it yourself. Instructions on installing
+can be found on <a href="https://www.python.org">https://www.python.org</a>.</p>
+<p>You will also need an editor. You can use any editor you feel comfortable in. I prefer using either <a href="http://www.vim.org">VIM</a>
+or <a href="https://www.sublimetext.com/3">Sublime 3</a>. And if you want a full editor then you can use <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>.</p>
+<h2>Basic Syntax</h2>
+<p>Python has many rules and most of them are similar to other languages like Java and PHP.</p>
+<p>Some points that stand out:</p>
+<ul>
+<li>Lines do not need to be ended with a <code>;</code></li>
+<li>Control structures do not use curly braces for blocks of code.</li>
+<li>Control structures do not need parentheses around their evaluation code.</li>
+</ul>
+<h2>Variables</h2>
+<p>Variables in Python can be any set of alphanumeric characters and underscores. However there are some
+things you need to look out for:</p>
+<ul>
+<li>Variables cannot start with a number.</li>
+<li>Variables are case sensitive.</li>
+<li>There are only special circumstances where underscores are used as the name of a variable.</li>
+</ul>
+<h2>Variable Types</h2>
+<p>There are many types a variable can be in Python, the basic ones are:</p>
+<ul>
+<li>Integers e.g. <code>x = 123</code></li>
+<li>Floating point numbers e.g. <code>y = 3.2</code></li>
+<li>Strings e.g. <code>s = "num"</code></li>
+<li>Objects</li>
+<li>Lists e.g. <code>l = [1, 2, 3]</code></li>
+<li>Tuples e.g. <code>t = (1, 2, 3)</code></li>
+<li>Dictionaries e.g. <code>d = {'a': 'b', 'b': 'c'}</code></li>
+<li>Function references e.g. <code>q = len</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">3.2</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;num&quot;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">}</span>
+<span class="n">q</span> <span class="o">=</span> <span class="nb">len</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2>Reading Input</h2>
+<p>Now that you know what variables look like and an example of how to print something to screen. Lets
+make a simple script that will ask for your name, and then print a greeting and your name:</p>
+<p><em>Python3</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;What is your name? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><em>Python2</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">(</span><span class="s1">&#39;What is your name? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2>Math Operators</h2>
+<p>Python has the normal math operators that most languages has (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>). However it also contains a power operator: <code>**</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># normal division: 3/2 will be 1.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># integer division 3/2 will be 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2>Lists</h2>
+<p>In Python we have lists instead of arrays. They behave almost the same, with the main
+difference being that lists can have operations on them to extend them, or get sub sections
+of them.</p>
+<p>When using lists one of the math operators gets over loaded. This being the <code>+</code> operator, which
+when used with lists will extend them by the list provided.</p>
+<p>An example of a list would be: <code>l = [1, 2, 'three']</code> as you can tell a list does not have to contain
+the same types, unlike other languages. however it is much easier if you always keep your lists
+containing the same type.</p>
+<p>Lists are zero indexed and are accessed in a similar manor as other languages: <code>l[1] = 5</code> and can
+be used directly.</p>
+<p><strong>Some examples of using lists:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">l1</span> <span class="o">+</span> <span class="n">l2</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">l3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># will print 4</span>
+
+<span class="n">l3</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l3</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>When making a variable equal to a list, the list is not copied but referenced, so changes to the
+original list will make the same changes to the new list. This can be avoided by copying the list.
+Copying a list is a special version of splicing a list. To splice a list is to get part of the list
+copied into a new list.</p>
+<p><strong>Examples of list splicing:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">l2</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># from the third element till the fifth (but excluding last element)</span>
+
+<span class="n">l3</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="c1"># from the third element till the end</span>
+
+<span class="n">l4</span> <span class="o">=</span> <span class="n">l</span><span class="p">[:]</span> <span class="c1"># copy of list</span>
+</code></pre></div>
+
+
+<p>You can also make the list longer by appending items, and items can be removed by deleting them.
+When an item is removed all the indices are re indexed.</p>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># append item to end</span>
+<span class="k">del</span> <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># remove the third element.</span>
+</code></pre></div>
+
+
+<h2>Dictionaries</h2>
+<p>A dictionary is something like a mix between a list and a hashmap. They are accessed by in a similar
+way to lists except they have string indices. They offer the speed of a hashmap. And when printing out
+their values the order can never be assured. The other difference is that dictionaries use curly braces
+to initialise them, compared to lists which use square brackets. When adding to a dictionary an explicit
+append is not used.</p>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;strawberry&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">}</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;grape&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
+
+<span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p>The other difference is that when you iterate over a list you get the values, where as for a dictionary
+you iterate over the keys by default:</p>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;strawberry&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+</code></pre></div>
+
+
+<h2>Tuples</h2>
+<p>Tuples are special purpose lists. They are immutable, which means you cannot change the values they
+store, you cannot make a tuple longer, and you cannot remove an item from a tuple. However if a tuple
+stores objects, those objects may be changed, but which objects the tuple points to cannot be changed.</p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">t2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Tuples are great for storing things that should not be changed, like colour codes.</p>
+<h2>Control Structures</h2>
+<p>Python has a few main control structures:</p>
+<ul>
+<li><code>if</code> - for making decisions</li>
+<li><code>while</code> - for looping over an unknown amount</li>
+<li><code>for</code> - for use with iterators</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yay&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="ow">not</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Again Yay&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not good&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Again not good&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Much better&quot;</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="c1"># print from 0 to 9</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="c1"># print 2, 4, 6, 8, 10</span>
+    <span class="nb">print</span> <span class="n">x</span>
+</code></pre></div>
+
+
+<p>You will notice there is no <code>switch</code> as there is in other languages. This is because <code>if</code>s and
+<code>elif</code> (else if) should rather be used. There are a few others but they will not be covered in this
+tutorial, as they are for special cases.</p>
+<p>But if you are interested some are:</p>
+<ul>
+<li><code>try</code> and <code>catch</code> for exception handling.</li>
+<li><code>with</code> which is used for connections, for proper handling of opening and closing behaviour.</li>
+</ul>
+<h2>Command Line Arguments</h2>
+<p>There is a way of getting values from the command line arguments, these are also much more useful
+than getting values read in from using <code>input()</code>, this allows you to script the use of your program.</p>
+<p>In the standard library <code>sys</code> (which provides system functions) is an array called <code>argv</code> which has
+a list of all the arguments passed to python, including the name of the current program. The first
+item in this list is the name of the program, the rest are all the values that were passed from the
+command line.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2>List Comprehension</h2>
+<p>In previous sections you have seen that you can use <code>append</code> to add an item to the end of a list. But
+if you are going to create a list from a fairly simple process then you can use list comprehension
+to shorten the amount of code you type. Just as a warning this syntax can be tricky to read, and
+even worse to debug. So if you are going to use this then make sure you know what you are doing.</p>
+<p>The basic syntax of list comprehension is built from two mandatory sections and one optional section.
+The first section is the value that you want, the second is the loop, and the third is some restriction.</p>
+<p>This will calculate the first 10 square numbers:</p>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<p>But if we want only the squares of even numbers then:</p>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+
+<p>I know that the above could have been accomplished by just changing the <code>range(10)</code> to <code>range(0, 10, 2)</code>
+but that was just for a simple use case.</p>
+<p>You can also do a list comprehension inside a list comprehension (as many times as you wish), but with
+every occurrence you need to be even more careful.</p>
+<p>An example of producing a multiplication times table:</p>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<h2>Dictionary Comprehension</h2>
+<p>Dictionary comprehension follows all the same rules as above, except the "value" part of the syntax.
+Which is expressed as <code>key: value</code>.</p>
+<p>I am going to use the exact same example as above:</p>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">{</span><span class="n">y</span><span class="p">:</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+</code></pre></div>
+
+
+<h2>Built In Functions</h2>
+<p>There are quite a few built in functions that are available to be used. Some of them are listed here:</p>
+<ul>
+<li><code>len</code> - get the length of the argument</li>
+<li><code>max</code> - get the maximum value of the passed iterable</li>
+<li><code>min</code> - get the minimum value of the passed iterable</li>
+<li><code>sum</code> - get the sum of the passed iterable (needs to be numbers)</li>
+<li><code>range</code> - creates an iterator of integers</li>
+<li><code>print</code> - sends the argument list to the console</li>
+<li><code>del</code> - remove the given item from memory</li>
+</ul>
+<h1>Ending</h1>
+<p>If you absolutely cannot wait for the next tutorial, you also search the web, their are many very good
+sites that give a much better description to this language than what I can ever do. I will try to find
+some, and over time will add it to this tutorial page.</p>
+      </div>
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted">
+      <a href="https://github.com/dominicschaff">GitHub</a>
+      | <a href="https://instagram.com/dominic.schaff">Instagram</a>
+      | Powered by <a href="http://getpelican.com/">Pelican</>
+    </span>
+  </div>
+</footer>
+</body>
+</html>

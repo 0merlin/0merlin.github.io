@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <title>Random Things - Bash Usage</title>
+        <meta charset="utf-8" />
+
+
+
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/theme/css/pygment.css">
+</head>
+
+<body id="index" class="home">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/">Random Things</a></h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/category/articles.html">Articles</a>
+            <a class="p-2 text-dark" href="/category/posts.html">Posts</a>
+            <a class="p-2 text-dark active" href="/category/tutorials.html">Tutorials</a>
+        <a class="p-2 text-dark" href="/tags.html">#Tags</a>
+  </nav>
+</div>
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+<div class="row">
+    <div class="col-md-8 blog-main">
+      <div class="blog-post">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/category/tutorials.html">Tutorials</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Bash Usage</li>
+          </ol>
+        </nav>
+        <h2 class="blog-post-title">Bash Usage</h2>
+        <p class="blog-post-meta">Sun 22 March 2020 <small class="text-muted">(Modified: Mon 23 March 2020)</small></p>
+        <blockquote>
+<p><strong>Note:</strong> I am building this page over time, so content will appear here slightly haphazzardly.
+So if there is content missing, I will add it later.</p>
+</blockquote>
+<p>So you have heard of the terminal environment, and maybe have even typed some commands in it. Now wouldn't you like to learn how add some more programming type logic to it? or perhaps even save these commands for later use? In this basic tutorial I hope to convey some of this knowledge to the reader. I will also try to keep this page updated when I see new tricks that are wonderful to use.</p>
+<h2>Things To Be Covered</h2>
+<p>If you know some of these things then skip to what you want to know.</p>
+<ul>
+<li>Basics</li>
+<li>Quick Notes on Syntax</li>
+<li>Printing</li>
+<li>echo</li>
+<li>printf</li>
+<li>Variables</li>
+<li>Basic Math</li>
+<li>Printing with Variables</li>
+<li>Reading in from the user</li>
+<li>Process Substitution</li>
+<li>Control Structures</li>
+<li>Globing</li>
+<li>Piping</li>
+<li>Input/Output Redirection</li>
+<li>Exit Codes</li>
+<li>Functions</li>
+<li>Arrays</li>
+<li>Shorthand Filtering</li>
+</ul>
+<h2>Start</h2>
+<p>First you are going to need two things, a text editor and a terminal. For each OS there are multiple terminal apps you can use. I only know of a few having only used a few OSs but there are many that you can use. For <code>OS X</code> (or <code>macOS</code>) there is the built in <code>Terminal.app</code> and some people prefer <a href="https://www.iterm2.com"><code>iTerm2</code></a>. If you have an <code>Ubuntu</code> based distrobution of Linux then there is the <code>Terminal</code> (sometimes called by different names). And in the latest versions of <code>Windows 10</code> there is also a bash shell.</p>
+<p>And secondly you should get some form of text editor, my preference when writing bash scripts is <code>Vim</code> however <a href="https://www.sublimetext.com/3">Sublime 3</a> is also very good.</p>
+<h2>Basics</h2>
+<p>First and foremost: <strong>be careful what you do in a bash script, bash is very powerful and can do much harm if you make a mistake</strong>. I have made many mistakes while learning, most of them were very easily corrected but not all mistakes are easy to correct.</p>
+<p>Now for some things to keep in mind:</p>
+<ul>
+<li>Anything that can be run in your terminal can be put into a script file.</li>
+<li>Your script will run in a different instance to your shell, most of the time.</li>
+<li>Arguments can be passed to your script, and a result can be returned, but variables are usually kept in context of the script or your shell session, there are exceptions to this which I will cover later.</li>
+</ul>
+<p>The syntax I will show will look as follows.</p>
+<p>When I am using the shell the output will be shown as such:</p>
+<div class="highlight"><pre><span></span><code>$ ls -l
+total <span class="m">4</span>.0K
+-rw-r--r-- <span class="m">1</span> c0de <span class="m">1</span>.9K Aug  <span class="m">8</span> <span class="m">18</span>:23 style.css
+$
+</code></pre></div>
+
+
+<blockquote>
+<p>Remember though that you should not be typing the <code>$</code> at the beginning of the line.</p>
+</blockquote>
+<p>However a file will be shown as:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># filename.sh</span>
+ls -l
+</code></pre></div>
+
+
+<p>and then the output shown as:</p>
+<div class="highlight"><pre><span></span><code>$ bash filename.sh
+total <span class="m">4</span>.0K
+-rw-r--r-- <span class="m">1</span> c0de <span class="m">1</span>.9K Aug  <span class="m">8</span> <span class="m">18</span>:23 style.css
+$
+</code></pre></div>
+
+
+<blockquote>
+<p>Notice that whenever I use the shell I will always end my output on another <code>$</code> symbol to show where the next input starts.</p>
+</blockquote>
+<h2>Quick Notes on Syntax</h2>
+<p>There are some things you need to be aware of with Bash:</p>
+<ul>
+<li>Bash is <strong>NOT</strong> forgiving when spaces are incorrect. Having one to few or to much will create a syntax error.</li>
+<li>Syntax needs to be exact, otherwise either your script will break, or you will get weird results.</li>
+<li>A comment starts with a <code>#</code> and ends when the line ends. There are no multi-line comments.</li>
+</ul>
+<p>Bash scripts should always start with one of the following:</p>
+<ul>
+<li><code>#!/bin/bash</code> - most common</li>
+<li><code>#!/usr/bin/bash</code> - an alternative to the above</li>
+<li><code>#!bash</code> - least common</li>
+<li><code>#!env bash</code> - most widely supported (apparently)</li>
+</ul>
+<p>If you are unsure which to use then use the first one (<code>#!/bin/bash</code>).</p>
+<h2>Printing</h2>
+<p>The basics of printing can be done in one of two ways, using the <code>echo</code> command or using the <code>printf</code> command. Most of the time you will see the <code>echo</code> command being used, and very very rarely the <code>printf</code> command is used.</p>
+<h3>echo</h3>
+<p><code>echo</code> is a basic command with some nifty extra first you can echo plain text:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;Hello&quot;</span>
+Hello
+$
+</code></pre></div>
+
+
+<p>However is does have some noteworthy options that can be used: <code>-n</code> which removes the automatically inserted line ending and <code>-e</code> which allows for special symbols to be added.</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> -n <span class="s2">&quot;Notice the last character&quot;</span>
+Notice the last character$
+</code></pre></div>
+
+
+<blockquote>
+<p>The previous example was to show that no new line was added by default. Hence the <code>$</code> at the end of the line</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> -e <span class="s2">&quot;Adding\nNew lines\nIn My text&quot;</span>
+Adding
+New lines
+In My text
+$
+</code></pre></div>
+
+
+<h3>printf</h3>
+<p>Using the <code>printf</code> function however allows for formatted printing. The formatting works in the same way as in most languages where you have the following meanings:</p>
+<ul>
+<li><code>%f</code> - for floating point number</li>
+<li><code>%d</code> - for an integer</li>
+<li><code>%s</code> - for a string</li>
+</ul>
+<p>But the ones that will be seen the most will be:</p>
+<ul>
+<li><code>%10s</code> - ensure a column of 10 characters, adding spaces to the string as needed</li>
+<li><code>%03d</code> - ensure a 3 digit number prepended with zeros to fill the gap.</li>
+</ul>
+<p>Notice however that <code>printf</code> does not automatically add a new line for you. So you are going to need to that manually by adding <code>\n</code> to the end of your format string.</p>
+<p>Examples are:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">printf</span> <span class="s2">&quot;%03d\n&quot;</span> <span class="m">2</span>
+<span class="m">002</span>
+$ <span class="nb">printf</span> <span class="s2">&quot;+%10s - %d\n&quot;</span> <span class="s2">&quot;Test&quot;</span> <span class="m">2</span>
++      Test - <span class="m">2</span>
+$
+</code></pre></div>
+
+
+<h2>Variables</h2>
+<p>Bash allows for variables which you can save one of 3 types of data. Numbers, string and array. Arrays however will be covered in a section on it's own much later.</p>
+<blockquote>
+<p>There are some things you need to be aware of when using variables in Bash:</p>
+<ul>
+<li>When assigning values there must be no space around the assignment operator: <code>a="qwerty"</code> is correct but <code>a ="qwerty"</code> and <code>a= "qwerty"</code> will  result in syntax errors.</li>
+<li>When using variables, they need to be prepended with a <code>$</code> most of the time (you will see later when not to use them).</li>
+<li>Variables are blank when they have not been assigned yet so <code>echo "$a"</code> will print a blank line if <code>$a</code> has not been created yet.</li>
+</ul>
+</blockquote>
+<p>Assigning and using variables:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nv">a</span><span class="o">=</span><span class="m">99</span>
+$ <span class="nv">b</span><span class="o">=</span><span class="s2">&quot;some text&quot;</span>
+$ <span class="nv">c</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$a$b</span><span class="s2">&quot;</span> <span class="c1"># will concatenate the two variables</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$c</span><span class="s2">&quot;</span>
+99some text
+$
+</code></pre></div>
+
+
+<h2>Basic Math</h2>
+<p>Now as most languages have some way to do basic math operations so does Bash. However note that the math that Bash can do is very limited so use with care:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nv">a</span><span class="o">=</span><span class="m">8</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$((</span>a+1<span class="k">))</span><span class="s2">&quot;</span>
+<span class="m">9</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$((</span>a-1<span class="k">))</span><span class="s2">&quot;</span>
+<span class="m">7</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$((</span>a*2<span class="k">))</span><span class="s2">&quot;</span>
+<span class="m">16</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$((</span>a/2<span class="k">))</span><span class="s2">&quot;</span>
+<span class="m">4</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$((</span>a%2<span class="k">))</span><span class="s2">&quot;</span>
+<span class="m">0</span>
+$
+</code></pre></div>
+
+
+<blockquote>
+<p>Notice that this is one of those times when there is no <code>$</code> with the usage of a variable.</p>
+</blockquote>
+<p>And to reassign the value back to the orriginal variable we can just use the assignment operator again:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nv">a</span><span class="o">=</span><span class="m">2</span>
+$ <span class="nv">a</span><span class="o">=</span><span class="k">$((</span>a+2<span class="k">))</span>
+</code></pre></div>
+
+
+<h2>Printing with Variables</h2>
+<p>Now that we can use variables and save simple data into them we would probably need to be able to print out that data again.</p>
+<p>There was an axample further up where we did print out the values.</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nv">s</span><span class="o">=</span><span class="s2">&quot;Some String&quot;</span>
+$ <span class="nv">a</span><span class="o">=</span><span class="m">3</span>
+$ <span class="nb">echo</span> <span class="nv">$s</span>
+Some String
+$ <span class="nb">echo</span> <span class="nv">$a</span>
+<span class="m">3</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;then the string is &#39;</span><span class="nv">$s</span><span class="s2">&#39; and the number is &#39;</span><span class="nv">$a</span><span class="s2">&#39;&quot;</span>
+<span class="k">then</span> the string is <span class="s1">&#39;Some String&#39;</span> and the number is <span class="s1">&#39;3&#39;</span>
+$
+</code></pre></div>
+
+
+<h2>Reading in from the user</h2>
+<p>There are many times that instructions will be needed from the user in terms of input from the user. There are two ways of doing this. Either you use arguments into your file, or you request information from the user in your script. (The first way is preferred.)</p>
+<h3>Command Line Argument</h3>
+<p>A command line argument is what you would add after the name of the program. An example to this is the <code>-l</code> argument one can add to the <code>ls</code> program. Arguments usually change the way the program or script operates. As for example passing <code>-l</code> to <code>ls</code> will cause the output to show a list of files instead of your files in one line.</p>
+<p>An example of passing arguments into a bash program would look like one of these three ways (depending on how you run your script).</p>
+<div class="highlight"><pre><span></span><code>$ bash myscript.sh argument1 argument2
+$ ./myscript.sh argument1 argument2
+$ myscript.sh argument1 argument2
+</code></pre></div>
+
+
+<p>The first way explicitly calls the program <code>bash</code> to run your script. The second way uses that first line in your script (<code>#!/bin/bash</code>) to figure out what program to call your script with. And the third way only works if your script is in the executable path, which in our case will not be the case.</p>
+<p>Now that we can give arguments to our scripts, our scripts will need a way of reading them out again.</p>
+<p>There are some special variables that are used in this case.</p>
+<ul>
+<li><code>$#</code> has the count of variables that are in the list of arguments.</li>
+<li><code>$0</code> contains the name of the script being run.</li>
+<li><code>$1</code> to <code>$9</code> has the first nine arguments to your program.</li>
+<li><code>${10}</code> and onwards contains the rest, you can also use <code>${1}</code> to get the arguments at the places below 10, but it looks ugly to it this way.</li>
+</ul>
+<p>So to use this in a simple example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># myscript.sh</span>
+<span class="nb">echo</span> <span class="s2">&quot;Count of arguments provided: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;This script name: </span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;The first argument: </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;The second argument: </span><span class="nv">$2</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code>$ bash myscript.sh fluffy bunny
+Count of arguments provided: <span class="m">2</span>
+This script name: myscript.sh
+The first argument: fluffy
+The second argument: bunny
+$ bash myscript.sh fluffy
+Count of arguments provided: <span class="m">1</span>
+This script name: myscript.sh
+The first argument: fluffy
+The second argument:
+$ bash myscript.sh
+Count of arguments provided: <span class="m">0</span>
+This script name: myscript.sh
+The first argument:
+The second argument:
+$
+</code></pre></div>
+
+
+<blockquote>
+<p>Notice that in the second and third run some of the lines didn't print anything (nothing was given) but the script also gave no error.</p>
+</blockquote>
+<h3>Reading User Input</h3>
+<p>Now the other way is request for information from the user when needed. This is very good for information that you do not want the user to store in their terminal history, and there is even a special command to read passwords so that they do not display on the screen while the user is typing it.</p>
+<p>The command we are going to use is <code>read</code> note that there are some special arguments that you can give it</p>
+<ul>
+<li><code>-s</code> this is for when you want the text to be hidden while you type.</li>
+<li><code>-p "&lt;other text&gt;"</code> this will allow you to prompt the user for something.</li>
+<li><code>-N &lt;number&gt;</code> this is great for when you only want a certain amount of text read in. Very useful for yes/no questions.</li>
+<li>And anything given without a <code>-</code> infront will be treated as if that is the variable to read into.</li>
+</ul>
+<blockquote>
+<p>If no variable is given then the variable that the data is read into is <code>$REPLY</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">read</span>
+hi
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$REPLY</span><span class="s2">&quot;</span>
+hi
+$ <span class="nb">read</span> -s
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$REPLY</span><span class="s2">&quot;</span>
+password
+$ <span class="nb">read</span> -p <span class="s2">&quot;Answer this question: &quot;</span>
+Answer this question: sure
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$REPLY</span><span class="s2">&quot;</span>
+sure
+$ <span class="nb">read</span> -N <span class="m">1</span> -p <span class="s2">&quot;Yes or No: &quot;</span>
+Ye^C
+$ <span class="nb">read</span> -N <span class="m">1</span> -p <span class="s2">&quot;Yes or No: &quot;</span>
+Yes or No: Y$ <span class="c1">#Notice I pressed enter here after typing which gave the weird printing</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$REPLY</span><span class="s2">&quot;</span>
+Y
+$ <span class="nb">read</span> answer
+hello
+$ <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$answer</span><span class="s2">&quot;</span>
+hello
+$
+</code></pre></div>
+
+
+<h2>Process Substitution</h2>
+<p>This is a way of running a program and using the input or output to look like a file to another program.</p>
+<p>As an example you can compare the output of two instructions.</p>
+<div class="highlight"><pre><span></span><code>diff &lt;<span class="o">(</span>date<span class="o">)</span> &lt;<span class="o">(</span>sleep <span class="m">2</span><span class="p">;</span> date<span class="o">)</span>
+</code></pre></div>
+
+
+<p>The <code>&lt;()</code> syntax makes a file for the <code>diff</code> program but allows you to take the output of the program and use it like a file for <code>diff</code> without creating
+an actual file first.</p>
+<h2>Control Structures</h2>
+<p>As in other languages there are control structures in bash. The 3 main ones are <code>if</code>, <code>while</code> and <code>for</code>. And they work in similiar ways to other languages.</p>
+<h3>if</h3>
+<p>An <code>if</code> is used to make decisions as it is used in other languages, the simplest if would be as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># test_if.bash</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="m">1</span> &lt; <span class="m">3</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Yay&quot;</span>
+<span class="k">fi</span>
+</code></pre></div>
+
+
+<blockquote>
+<p>Remember spacing is very important here!!!</p>
+</blockquote>
+<p>And there is also the <code>else</code> keyword as in other languages:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># test_if_else.bash</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="m">1</span> &gt; <span class="m">3</span> <span class="o">]]</span><span class="p">;</span><span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;damn&quot;</span>
+<span class="k">else</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Yay&quot;</span>
+<span class="k">fi</span>
+</code></pre></div>
+
+
+<p>And there is also an else if, however the keyword to use would be <code>elif</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># test_if_elseif.bash</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="m">1</span> &gt; <span class="m">3</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;No&quot;</span>
+<span class="k">elif</span> <span class="o">[[</span> <span class="m">2</span> &gt; <span class="m">1</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Yay&quot;</span>
+<span class="k">fi</span>
+</code></pre></div>
+
+
+<h3>while</h3>
+<p>The <code>while</code> statement follows the following syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># test_while.bash</span>
+<span class="k">while</span> <span class="nb">read</span> a<span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+
+
+<blockquote>
+<p>Replacing the <code>read a</code> with whatever command you would like to be as the test condition.</p>
+</blockquote>
+<p>The <code>while</code> statement can use either the exit code of a command as above or a test condition as in the example with the <code>if</code> above. However most of the time that I use the <code>while</code> statement I am normally reading in input as in above.</p>
+<h3>for</h3>
+<p>The <code>for</code> statement follows the following syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># test_for.bash</span>
+<span class="k">for</span> f in *.mp3<span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+
+
+<p>The <code>for</code> statement requires a variable (the <code>f</code>) and something to loop over (the <code>*.mp3</code>). Most of the time that I use a for loop I use one of the following examples:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># test_for_examples.bash</span>
+
+<span class="c1"># print all the numbers from 1 to 10:</span>
+<span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..10<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># print all the odd numbers between 1 and 10:</span>
+<span class="k">for</span> i in <span class="o">{</span><span class="m">1</span>..10..2<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># print out the names of all the mp3 files in the current directory:</span>
+<span class="k">for</span> f in *.mp3<span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># or print out all the parts of a command (the output is split by space):</span>
+<span class="k">for</span> p in <span class="sb">`</span>date<span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
+  print <span class="s2">&quot;</span><span class="nv">$p</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+
+
+<h2>Comparisons</h2>
+<p>The comparisons one can make depends on the data type that is used in the comparison. Bash supports using either numeric types or strings:</p>
+<h3>Numeric</h3>
+<p>Numerical types use the same symbols as most languages: <code>&lt;</code>, <code>&gt;</code>, <code>==</code>, <code>&lt;=</code>, <code>&gt;=</code> and <code>!=</code>.</p>
+<h3>Strings</h3>
+<p>Strings on the other hand cannot use the above symboles, instead they use the following:</p>
+<ul>
+<li><code>-eq</code> - to test for equality.</li>
+<li><code>-ne</code> - to test for non equality.</li>
+<li><code>-gt</code> - to test for greater than.</li>
+<li><code>-lt</code> - to test for less than.</li>
+<li><code>-ge</code> - To test for greater and equality.</li>
+<li><code>-le</code> - to test for less than and equality.</li>
+</ul>
+<h2>Globing</h2>
+<p>In essence globing is the reverse of a regular expression. In that the expression that you do give it, the outcome is every possible match to what you provided.</p>
+<p>As an example look at the following:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="o">{</span><span class="m">1</span>..20<span class="o">}</span>
+<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="m">8</span> <span class="m">9</span> <span class="m">10</span> <span class="m">11</span> <span class="m">12</span> <span class="m">13</span> <span class="m">14</span> <span class="m">15</span> <span class="m">16</span> <span class="m">17</span> <span class="m">18</span> <span class="m">19</span> <span class="m">20</span>
+$ <span class="nb">echo</span> <span class="o">{</span>a,d,c,e,f<span class="o">}{</span><span class="m">1</span>-3<span class="o">}</span>
+a1 a2 a3 d1 d2 d3 c1 c2 c3 e1 e2 e3 f1 f2 f3
+$ <span class="nb">echo</span> server-<span class="o">{</span><span class="m">1</span>,2<span class="o">}{</span>a,b<span class="o">}</span>-cpt
+server-1a-cpt server-1b-cpt server-2a-cpt server-2b-cpt
+$ <span class="nb">echo</span> <span class="o">{</span>a..c<span class="o">}</span>
+a b c
+$ <span class="nb">echo</span> <span class="o">{</span><span class="m">1</span>..10..2<span class="o">}</span>
+<span class="m">1</span> <span class="m">3</span> <span class="m">5</span> <span class="m">7</span> <span class="m">9</span>
+$ ls
+file1 file2 file4a another_file
+$ <span class="nb">echo</span> file*
+file1 file2 file4a
+</code></pre></div>
+
+
+<p>Now you might wander why would anyone use this. Let me give you a few examples:</p>
+<ol>
+<li>Let's say you are wanting to process all the text files in a folder you could then run: <code>for f in *.txt; do cat "$f"; done</code> obviously replacing the <code>cat</code> program with what ever you need.</li>
+<li>Perhaps you have a list of servers that are identified by numbers, and you want to get the last 20 lines of the <code>httpd</code> logs: <code>for s in server{1..10}.internal; do ssh "$s" 'tail -n 20 /var/log/httpd.log'; done</code></li>
+<li>What about deleting all your backups? <code>rm *.bkp *~</code></li>
+<li>Or perhaps clearing or temporary text files on your machine? <code>rm /tmp/*.txt</code></li>
+</ol>
+<p>As you can see there can be many uses for this, the limit is only what you need to do, or what you can find.</p>
+<h2>Piping</h2>
+<p>One of the major benefits that Unix brought was the idea that all programs shoould be able to handle text streams as their input and output. Now obviously not all programs handle (think of <code>ls</code> that only outputs). But most programs can do both. This might seem unimportant, were it not for another of the Unix philosophies which is that a program should only do one thing well, so that other programs can be delegated to do the other tasks.</p>
+<p>For example let's only use the basic form of <code>ls</code> to output a list of files and directories. Now let's take what ever we get and reverse it: <code>ls | sort -r</code> this obviously can be done with just <code>ls</code> however that would give <code>ls</code> way to much responsibility, but becareful with that thinking, sometimes it is beneficial to allow one program to do a lot more than one thing (read the <code>man</code> pages for <code>ls</code> to see why).</p>
+<p>There are great benefits to piping in a Unix environment one of the great benefits is that each time a new pipe is started it also signifies that a new process should be forked on the machine. Which means that if you have multiple linear processes that output data slowly, the next parts of the processes can start running even while the others are still going. And this can allow some jobs to be faster, however most of the time this will not be notice able.</p>
+<p>In most Unix environments you can pipe for as long as you wish so a command such as:</p>
+<div class="highlight"><pre><span></span><code>$ cmd1 <span class="p">|</span> cmd2 <span class="p">|</span> cmd3 <span class="p">|</span> cmd4 <span class="p">|</span> cmd5 <span class="p">|</span> cmd6
+</code></pre></div>
+
+
+<p>Can stretch on to cover many lines, even though this does make things a little more difficult to read.</p>
+<p>Note also that if for example <code>cmd3</code> breaks the rest of the chain will behave most of the time as if nothing it wrong.</p>
+<h2>Input/Output Redirection</h2>
+<p>Bash provides one of the marvoulous things that it can read and write from files without using programs like <code>cat</code>, it can do what is known as redirection. Where it can take the contents of a file as use it as input for a program. Or automatically save the output of a program into a file.</p>
+<p>As an example instead of <code>cat file.txt | wc -l</code> we could write <code>wc -l &lt; file.txt</code> (These are very simple cases, but the idea does work).</p>
+<p>Or perhaps you want to save the output of a command into a file for later usage: <code>curl http://google.com &gt; file.html</code>.</p>
+<p>Both of these can be used at the same time as well: <code>wc -l &lt; file.txt &gt; results.txt</code></p>
+<p>There are a few other types of redirection as well, they are listed below:</p>
+<ul>
+<li><code>cmd &gt; file.txt</code> - save the output of <code>cmd</code> to the file <code>file.txt</code></li>
+<li><code>cmd &gt;&gt; file.txt</code> - append the output of <code>cmd</code> to the file <code>file.txt</code></li>
+<li><code>cmd !&gt; file.txt</code> - save the output of <code>cmd</code> to the file <code>file.txt</code> but only if it doesn't already exist</li>
+<li><code>cmd &lt; file.txt</code> - use the contents of <code>file.txt</code> as the input of <code>cmd</code></li>
+<li><code>cmd 2&gt; error.txt</code> - save the error stream of <code>cmd</code> to the file <code>error.txt</code></li>
+<li><code>cmd 2&gt;&amp;1</code> - output the error stream to the standard output stream</li>
+<li><code>cmd &amp;&gt; file.txt</code> - save both the error and standard output stream of <code>cmd</code> to <code>file.txt</code></li>
+</ul>
+<h2>Exit Codes</h2>
+<p>Every program once run will produce an exit code, which will let you know whether it exited successfully or with an error. <strong>Note</strong> however that there are some programs that will exit with an error but produce a successful exit code.</p>
+<h2>Functions</h2>
+<p>As with other languages repeating code all the time can be tiring, so sometimes you would like to group functionality together. In Bash you can either do that with scripts, or with functions.</p>
+<p>The basic definition of a function would be:</p>
+<div class="highlight"><pre><span></span><code>function_name<span class="o">()</span>
+<span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Hello...&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+
+
+<p>You can then run any subset of commands in your functions. When inside a function is looks like you are in a seperate script so you can access the function arguments the same way that you access a scripts arguments (refer to &lt;#command_line_arguments&gt;).</p>
+<p>For an example see:</p>
+<div class="highlight"><pre><span></span><code>func<span class="o">()</span>
+<span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+func <span class="s1">&#39;Hello&#39;</span>
+</code></pre></div>
+
+
+<p>Functions can be defined in your <code>.bashrc</code> file to be used in your shell environment, or in files to be used in your scripts.</p>
+<h2>Arrays</h2>
+<p>Arrays can be created in a few ways. The two most common ways are:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#Hardcoded:</span>
+
+<span class="nv">arr</span><span class="o">=(</span>
+  item1
+  item2
+  item3
+<span class="o">)</span>
+
+<span class="c1">#Based on the output of a program</span>
+<span class="nv">arr2</span><span class="o">=(</span> <span class="k">$(</span>ls -1<span class="k">)</span> <span class="o">)</span>
+</code></pre></div>
+
+
+<p>Then you can do various things with the arrays.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> a in <span class="si">${</span><span class="nv">arr</span><span class="p">[*]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Array values: </span><span class="si">${</span><span class="nv">arr2</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Array size: </span><span class="si">${#</span><span class="nv">arr2</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+
+<h2>Script Snippets</h2>
+<p>Here I will add short snippets that I have found useful in the past.</p>
+      </div>
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted">
+      <a href="https://github.com/dominicschaff">GitHub</a>
+      | <a href="https://instagram.com/dominic.schaff">Instagram</a>
+      | Powered by <a href="http://getpelican.com/">Pelican</>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
